@@ -1,4 +1,4 @@
-package sm4;
+package com.jb.sm4;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.pqc.math.linearalgebra.ByteUtils;

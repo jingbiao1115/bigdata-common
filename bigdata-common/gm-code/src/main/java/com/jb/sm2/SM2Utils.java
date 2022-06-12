@@ -1,4 +1,4 @@
-package sm2;
+package com.jb.sm2;
 
 import org.apache.commons.lang3.StringUtils;
 import org.bouncycastle.asn1.gm.GMNamedCurves;

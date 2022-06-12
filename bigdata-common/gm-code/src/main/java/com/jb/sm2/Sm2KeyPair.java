@@ -1,4 +1,4 @@
-package sm2;
+package com.jb.sm2;
 
 
 /**

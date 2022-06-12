@@ -1,4 +1,4 @@
-package sm3;
+package com.jb.sm3;
 
 import org.bouncycastle.crypto.digests.SM3Digest;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
