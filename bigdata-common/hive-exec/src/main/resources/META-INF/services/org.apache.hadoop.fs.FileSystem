@@ -1,0 +1,3 @@
+org.apache.hadoop.hive.ql.io.NullScanFileSystem
+org.apache.hadoop.fs.LocalFileSystem
+org.apache.hadoop.hive.ql.io.ProxyLocalFileSystem

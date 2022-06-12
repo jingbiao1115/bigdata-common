@@ -1,0 +1,47 @@
+# Compiled class file
+*.class
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Intellij
+*.ipr
+*.iml
+*/*.iml
+*.iws
+.idea/
+
+# Maven
+dependency-reduced-pom.xml
+*/dependency-reduced-pom.xml
+target/
+*/target/
+**/target/
+
+# Gradle
+build
+.gradle
+
+# Log file
+*.log
+log/
+
+# out
+**/out/
+
+# Mac
+.DS_Store
+
+# Package Files
+*.jar
+*.war
+*.zip
+*.tar
+*.tar.gz
+*.pid
+*.orig
+
+.gitee
+${project.basedir}/
