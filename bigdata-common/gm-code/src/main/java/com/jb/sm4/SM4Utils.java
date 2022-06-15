@@ -56,13 +56,13 @@ public class SM4Utils {
         return ByteUtils.toHexString(cipherArray).toUpperCase(Locale.ROOT);
     }
 
-    private static byte[] encryptEcbPadding(byte[] key, byte[] data) throws Exception {
+    public static byte[] encryptEcbPadding(byte[] key, byte[] data) throws Exception {
         Cipher cipher = generateEcbCipher(ALGORITHM_NAME_ECB_PADDING, Cipher.ENCRYPT_MODE, key);
         byte[] bs = cipher.doFinal(data);
         return bs;
     }
 
-    private static Cipher generateEcbCipher(String algorithmName, int mode, byte[] key) throws Exception {
+    public static Cipher generateEcbCipher(String algorithmName, int mode, byte[] key) throws Exception {
         Cipher cipher = Cipher.getInstance(algorithmName,BouncyCastleProvider.PROVIDER_NAME);
         Key sm4Key = new SecretKeySpec(key, ALGORIGTHM_NAME);
         cipher.init(mode, sm4Key);

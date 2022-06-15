@@ -115,7 +115,7 @@ public class SM2Utils {
         }
 
         /**
-         * 签名
+         * 验签
          * @param sign
          * @return
          * @throws NoSuchAlgorithmException
