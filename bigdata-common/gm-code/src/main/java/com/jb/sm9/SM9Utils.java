@@ -30,6 +30,9 @@ public class SM9Utils {
         return new SM9EncryptBouncyCastle().register(IBE_Identify);
     }
 
+
+    ////////////////////////////////////////加密////////////////////////////////////////
+
     /**
      * 使用标识ID,主密钥对或主公钥加密
      */
@@ -37,15 +40,24 @@ public class SM9Utils {
 
         switch (keyType.getCode()) {
             case 0:
-                return Hex.toHexString(new SM9EncryptBouncyCastle().masterKeyEncrypt(IBE_Identify,
-                        key,msg).toByteArray());
+                return Hex.toHexString(
+                        new SM9EncryptBouncyCastle().masterKeyEncrypt(
+                                IBE_Identify,
+                                key,msg
+                        ).toByteArray());
             case 3:
-                return Hex.toHexString(new SM9EncryptBouncyCastle().masterPublicKeyEncrypt(IBE_Identify,key,
-                        msg).toByteArray());
+                return Hex.toHexString(
+                        new SM9EncryptBouncyCastle().masterPublicKeyEncrypt(
+                                IBE_Identify,
+                                key,msg
+                        ).toByteArray());
             default:
                 throw new Exception("Not support public key type");
         }
     }
+
+
+    ////////////////////////////////////////解密////////////////////////////////////////
 
     /**
      * 使用标识ID,用户私钥或主私钥解密
@@ -54,19 +66,29 @@ public class SM9Utils {
             String cipherText) throws Exception {
         switch (keyType.getCode()) {
             case 0:
-                return new SM9EncryptBouncyCastle().masterKeyDecrypt(IBE_Identify,key,
-                        cipherText);
+                return new SM9EncryptBouncyCastle().masterKeyDecrypt(
+                        IBE_Identify,
+                        key,
+                        cipherText
+                );
             case 1:
-                return new SM9EncryptBouncyCastle().masterPrivateKeyDecrypt(IBE_Identify,key,
-                        cipherText);
+                return new SM9EncryptBouncyCastle().masterPrivateKeyDecrypt(
+                        IBE_Identify
+                        ,key,
+                        cipherText
+                );
             case 2:
-                return new SM9EncryptBouncyCastle().userPrivateDecrypt(IBE_Identify,key,
-                        cipherText);
+                return new SM9EncryptBouncyCastle().userPrivateDecrypt(
+                        IBE_Identify,
+                        key,
+                        cipherText
+                );
 
             default:
                 throw new Exception("Not support private key type");
         }
     }
+
 
     ////////////////////////////////////////签名密钥////////////////////////////////////////
 
@@ -77,31 +99,59 @@ public class SM9Utils {
         return new SM9SignBouncyCastle().generateSignKey(IBE_Identify);
     }
 
+
+    ////////////////////////////////////////签名////////////////////////////////////////
+
     /**
      * 签名
      */
     public static String sign(String masterPublicKey,String privateKey,
             String sign) throws Exception {
-        return new SM9SignBouncyCastle().sign(masterPublicKey,privateKey,sign);
+
+        return new SM9SignBouncyCastle().sign(
+                masterPublicKey,
+                privateKey,
+                sign
+        );
     }
 
     public static SignResult sign(Sm9MasterKeyPair.MasterPublicKey masterPublicKey,
             Sm9PrivateKey privateKey,byte[] sign) {
-        return new SM9SignBouncyCastle().sign(masterPublicKey,privateKey,sign);
+
+        return new SM9SignBouncyCastle().sign(
+                masterPublicKey,
+                privateKey,
+                sign
+        );
     }
+
+
+    ////////////////////////////////////////验签////////////////////////////////////////
 
     /**
      * 验签
      */
     public static boolean verifySign(String IBE_Identify,String masterPublicKey,String sign,
             String signResult) {
-        return new SM9SignBouncyCastle().verify(IBE_Identify,masterPublicKey,sign,signResult);
+
+        return new SM9SignBouncyCastle().verify(
+                IBE_Identify,
+                masterPublicKey,
+                sign,
+                signResult
+        );
     }
 
     public static boolean verifySign(String IBE_Identify,
             Sm9MasterKeyPair.MasterPublicKey masterPublicKey,byte[] sign,
             SignResult signature) {
-        return new SM9SignBouncyCastle().verify(IBE_Identify,masterPublicKey,sign,signature);
+
+        return new SM9SignBouncyCastle().verify(
+                IBE_Identify,
+                masterPublicKey,
+                sign,
+                signature
+        );
     }
 
 
