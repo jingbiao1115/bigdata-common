@@ -1,7 +1,7 @@
 package com.jb.sm9.result;
 
 import com.jb.sm9.core.SM9Curve;
-import com.jb.sm9.method.Sm9Method;
+import com.jb.sm9.method.SM9Method;
 import it.unisa.dia.gas.plaf.jpbc.field.curve.CurveElement;
 
 import java.io.ByteArrayOutputStream;
@@ -32,7 +32,7 @@ public class SignResult {
 
     public byte[] toByteArray() {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        byte[] temp = Sm9Method.BigIntegerToBytes(h, SM9Curve.SM9CurveParameters.nBits/8);
+        byte[] temp = SM9Method.BigIntegerToBytes(h, SM9Curve.SM9CurveParameters.nBits/8);
         bos.write(temp, 0, temp.length);
         temp = s.toBytes();
         bos.write(temp, 0, temp.length);
@@ -46,10 +46,10 @@ public class SignResult {
         sb.append('\n');
         sb.append("h:");
         sb.append('\n');
-        sb.append(Sm9Method.toHexString(Sm9Method.BigIntegerToBytes(h)));
+        sb.append(SM9Method.toHexString(SM9Method.BigIntegerToBytes(h)));
         sb.append("s:");
         sb.append('\n');
-        sb.append(Sm9Method.toHexString(Sm9Method.G1ElementToBytes(s)));
+        sb.append(SM9Method.toHexString(SM9Method.G1ElementToBytes(s)));
         sb.append('\n');
 
         return sb.toString();

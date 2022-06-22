@@ -1,7 +1,7 @@
 package com.jb.sm9.result;
 
 
-import com.jb.sm9.method.Sm9Method;
+import com.jb.sm9.method.SM9Method;
 import com.jb.sm9.core.SM9Curve;
 import it.unisa.dia.gas.plaf.jpbc.field.curve.CurveElement;
 
@@ -55,15 +55,15 @@ public final class CipherResult {
         sb.append("\n");
         sb.append("C1:");
         sb.append("\n");
-        sb.append(Sm9Method.toHexString(Sm9Method.G1ElementToBytes(this.C1)));
+        sb.append(SM9Method.toHexString(SM9Method.G1ElementToBytes(this.C1)));
         sb.append("\n");
         sb.append("C2:");
         sb.append("\n");
-        sb.append(Sm9Method.toHexString(this.C2));
+        sb.append(SM9Method.toHexString(this.C2));
         sb.append("\n");
         sb.append("C3:");
         sb.append("\n");
-        sb.append(Sm9Method.toHexString(this.C3));
+        sb.append(SM9Method.toHexString(this.C3));
         sb.append("\n");
         return sb.toString();
     }

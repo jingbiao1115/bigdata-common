@@ -1,6 +1,6 @@
 package com.jb.sm9.core;
 
-import com.jb.sm9.method.Sm9Method;
+import com.jb.sm9.method.SM9Method;
 import com.jb.util.Hex;
 import it.unisa.dia.gas.jpbc.*;
 import it.unisa.dia.gas.plaf.jpbc.field.curve.CurveElement;
@@ -28,9 +28,9 @@ public class SM9Curve {
     public SM9CurveParameters.SM9Pairing sm9Pairing;
     public CurveElement P1;
     public CurveElement P2;
-    protected static final byte HID_SIGN = 1;
-    protected static final byte HID_KEY_EXCHANGE = 2;
-    protected static final byte HID_ENCRYPT = 3;
+    public static final byte HID_SIGN = 1;
+    public static final byte HID_KEY_EXCHANGE = 2;
+    public static final byte HID_ENCRYPT = 3;
 
     public SM9Curve() {
         this(new SecureRandom());
@@ -65,31 +65,31 @@ public class SM9Curve {
         sb.append("SM9 curve parameters:");
         sb.append(newLine);
         sb.append("b:\n");
-        sb.append(Sm9Method.toHexString(Sm9Method.BigIntegerToBytes(pairingParameters.getBigInteger("b"))));
+        sb.append(SM9Method.toHexString(SM9Method.BigIntegerToBytes(pairingParameters.getBigInteger("b"))));
         sb.append(newLine);
         sb.append("t:\n");
-        sb.append(Sm9Method.toHexString(Sm9Method.BigIntegerToBytes(pairingParameters.getBigInteger("t"))));
+        sb.append(SM9Method.toHexString(SM9Method.BigIntegerToBytes(pairingParameters.getBigInteger("t"))));
         sb.append(newLine);
         sb.append("q:\n");
-        sb.append(Sm9Method.toHexString(Sm9Method.BigIntegerToBytes(pairingParameters.getBigInteger("q"))));
+        sb.append(SM9Method.toHexString(SM9Method.BigIntegerToBytes(pairingParameters.getBigInteger("q"))));
         sb.append(newLine);
         sb.append("N:\n");
-        sb.append(Sm9Method.toHexString(Sm9Method.BigIntegerToBytes(pairingParameters.getBigInteger("r"))));
+        sb.append(SM9Method.toHexString(SM9Method.BigIntegerToBytes(pairingParameters.getBigInteger("r"))));
         sb.append(newLine);
         sb.append("beta:\n");
-        sb.append(Sm9Method.toHexString(Sm9Method.BigIntegerToBytes(pairingParameters.getBigInteger("beta"))));
+        sb.append(SM9Method.toHexString(SM9Method.BigIntegerToBytes(pairingParameters.getBigInteger("beta"))));
         sb.append(newLine);
         sb.append("alpha0:\n");
-        sb.append(Sm9Method.toHexString(Sm9Method.BigIntegerToBytes(pairingParameters.getBigInteger("alpha0"))));
+        sb.append(SM9Method.toHexString(SM9Method.BigIntegerToBytes(pairingParameters.getBigInteger("alpha0"))));
         sb.append(newLine);
         sb.append("alpha1:\n");
-        sb.append(Sm9Method.toHexString(Sm9Method.BigIntegerToBytes(pairingParameters.getBigInteger("alpha1"))));
+        sb.append(SM9Method.toHexString(SM9Method.BigIntegerToBytes(pairingParameters.getBigInteger("alpha1"))));
         sb.append(newLine);
         sb.append("P1:\n");
-        sb.append(Sm9Method.toHexString(Sm9Method.G1ElementToBytes(this.P1)));
+        sb.append(SM9Method.toHexString(SM9Method.G1ElementToBytes(this.P1)));
         sb.append(newLine);
         sb.append("P2:\n");
-        sb.append(Sm9Method.toHexString(Sm9Method.G2ElementToByte(this.P2)));
+        sb.append(SM9Method.toHexString(SM9Method.G2ElementToByte(this.P2)));
         sb.append("----------------------------------------------------------------------");
         sb.append(newLine);
         return sb.toString();

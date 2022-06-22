@@ -1,6 +1,6 @@
 package com.jb.sm9.key;
 
-import com.jb.sm9.method.Sm9Method;
+import com.jb.sm9.method.SM9Method;
 import com.jb.sm9.core.SM9Curve;
 import it.unisa.dia.gas.plaf.jpbc.field.curve.CurveElement;
 
@@ -12,20 +12,20 @@ import java.util.Arrays;
  * @author zhaojb
  * SM9主密钥对
  */
-public class Sm9MasterKeyPair {
+public class SM9MasterKeyPair {
     private final MasterPrivateKey priKey;
     private final MasterPublicKey pubKey;
 
-    public Sm9MasterKeyPair(MasterPrivateKey privateKey,MasterPublicKey publicKey) {
+    public SM9MasterKeyPair(MasterPrivateKey privateKey,MasterPublicKey publicKey) {
         this.priKey = privateKey;
         this.pubKey = publicKey;
     }
 
-    public static Sm9MasterKeyPair fromByteArray(SM9Curve curve,byte[] source) {
+    public static SM9MasterKeyPair fromByteArray(SM9Curve curve,byte[] source) {
         int len = 32;
         byte[] bPrikey = Arrays.copyOfRange(source,0,len);
         byte[] bPubkey = Arrays.copyOfRange(source,len,source.length);
-        return new Sm9MasterKeyPair(MasterPrivateKey.fromByteArray(bPrikey),
+        return new SM9MasterKeyPair(MasterPrivateKey.fromByteArray(bPrikey),
                 MasterPublicKey.fromByteArray(curve,bPubkey));
     }
 
@@ -74,7 +74,7 @@ public class Sm9MasterKeyPair {
         }
 
         public byte[] toByteArray() {
-            return Sm9Method.BigIntegerToBytes(this.d, 32);
+            return SM9Method.BigIntegerToBytes(this.d, 32);
         }
 
         @Override
@@ -82,7 +82,7 @@ public class Sm9MasterKeyPair {
             StringBuffer sb = new StringBuffer();
             sb.append("sm9 master private key:");
             sb.append("\n");
-            sb.append(Sm9Method.toHexString(Sm9Method.BigIntegerToBytes(this.d, 32)));
+            sb.append(SM9Method.toHexString(SM9Method.BigIntegerToBytes(this.d, 32)));
             return sb.toString();
         }
     }
@@ -135,9 +135,9 @@ public class Sm9MasterKeyPair {
             sb.append("sm9 master public key:");
             sb.append("\n");
             if (this.isSignKey) {
-                sb.append(Sm9Method.toHexString(Sm9Method.G2ElementToByte(this.Q)));
+                sb.append(SM9Method.toHexString(SM9Method.G2ElementToByte(this.Q)));
             } else {
-                sb.append(Sm9Method.toHexString(Sm9Method.G1ElementToBytes(this.Q)));
+                sb.append(SM9Method.toHexString(SM9Method.G1ElementToBytes(this.Q)));
             }
 
             return sb.toString();
