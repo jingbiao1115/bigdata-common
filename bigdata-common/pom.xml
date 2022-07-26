@@ -11,7 +11,8 @@
         <module>hive-metasore</module>
         <module>hive-exec</module>
         <module>flink-table-planner</module>
-        <module>gm-code</module>
+        <module>gm-tools</module>
+        <module>metadata-collect</module>
     </modules>
     <packaging>pom</packaging>
 
